@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins";
+}
+h1 {
+  text-align: center;
+  padding: 30px 0;
+  font-style: italic;
+}
+
+.main {
+  width: 1320px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  font-family: "Poppins";
+}
+
+.filterBox {
+  flex-basis: 23%;
+}
+ img{
+  width: 200px;
+}
+
+.categoryList {
+  margin-top: 20px;
+}
+
+.categoryList label {
+  display: block;
+  font-family: "Poppins";
+  padding: 5px 0px;
+}
+
+.products {
+  flex-basis: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  /* align-content: center; */
+  justify-content: space-between;
+}
+.productsItems{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   width: 300px;
+  margin: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+
+.productsItems img{
+  width: 250px;
+  height: 250px;
+}
+
+.productsItems p {
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

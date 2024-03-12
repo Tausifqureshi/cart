@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>products filter</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="search-container">
+            <input type="search" name="" id="search-input" placeholder="Search Here...">
+            <button id="search">Sreach</button>
+        </div>
+
+        <div id="buttons">
+            <button class="button-value" onclick="filterProducts('all')">All</button>
+            <button class="button-value" onclick="filterProducts('Topwear')">Topwear</button>
+            <button class="button-value" onclick="filterProducts('Bottomwear')">Bottomwear</button>
+            <button class="button-value" onclick="filterProducts('Jacket')">Jacket</button>
+            <button class="button-value" onclick="filterProducts('Watch')">Watch</button>
+            <label for="all">All</label>
+            <input type="checkbox" id="all" class="button-value" onclick="filterProducts('all')">
+        </div>
+        <div id="products"></div>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+ 
+
+    </script>
+</body>
+
+</html>

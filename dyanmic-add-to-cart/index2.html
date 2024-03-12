@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product page</title>
+    <style>
+       *{
+        margin:0;
+        padding:0;
+       }
+       .productContainer{
+        width: "100%";
+        height: auto;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 10px;
+        padding: 10px;
+       }
+       .productContainer> .item{
+         width: 300px;
+         height: 300px;
+         border: 1px solid green;
+       }
+       h1{
+        margin: '1rem';
+        color: blue;
+        text-align: center;
+       }
+       button{
+        cursor: pointer;
+        padding: 12px 60px;
+        background-color: aqua;
+        border: none;
+        border-radius: 10px;
+        margin: auto;
+       }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Ecommerece</h1>
+    <div class="productContainer">
+    
+    </div>
+    
+</body>
+</html>
+<script>
+    const myProducts=[
+        {
+            productName:'iphone 13',
+            productQuantity:10,
+            brand:'apple',
+            color:'green',
+            price:15000,
+            productDescription:'an appple product description',
+            id:1,
+        },
+        {
+            productName:'realme 13',
+            productQuantity:5,
+            brand:'realme',
+            color:'white',
+            price:20000,
+            productDescription:'a realme product description',
+            id:2,
+        },
+        {
+            productName:'vivo 13',
+            productQuantity:10,
+            brand:'vivo',
+            color:'green',
+            price:12000,
+            productDescription:'a vivo product description',
+            id:3,
+        }
+    ]
+
+
+ function showProducts(myProducts){
+     const parentDiv= document.querySelector(
+        ".productContainer"
+     )
+       myProducts.map((product)=>{
+        const productDiv= document.createElement('div');
+         productDiv.classList.add('item');
+         const name= document.createElement('h4');
+         name.textContent=product.productName;
+         const color= document.createElement('h5');
+         color.textContent=product.color
+         const description= document.createElement('p');
+         description.textContent=product.productDescription
+         const price= document.createElement('h5');
+         price.textContent=product.price;
+         const addToCartBtn= document.createElement('button');
+         addToCartBtn.textContent='Add to Cart';
+         addToCartBtn.addEventListener('click', (e)=>{
+            myCart(product)
+         })
+         
+         productDiv.append(name,color,description,price,addToCartBtn)
+        parentDiv.append(productDiv)
+       })
+ }
+ function myCart(productItem){
+    console.log('clicked product item ',productItem);
+ const cartData= JSON.parse(localStorage.getItem('cartData')) || [];
+ const isItemExist=cartData.find((curItem)=>curItem.id===productItem.id)
+if(isItemExist){
+    return 
+}
+const cartItem={
+    // ...productItem,
+    // quantity:1
+  };
+  
+  cartData.push(cartItem);
+  localStorage.setItem('cartData', JSON.stringify(cartData));
+
+ }
+
+ showProducts(myProducts)
+</script>

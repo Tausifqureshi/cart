@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="products-filter.css">
+  <title>Document</title>
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <div class="input_container">
+        <div class="search_icon">
+          <!-- <img src="search_icon.svg" /> -->
+        </div>
+        <input id="searchInput" placeholder="Search Products..." type="text" />
+      </div>
+      <div class="product_container" id="productContainer">
+        <!-- <div class="product_card">
+          <div class="image_container">
+            <img
+              src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="product_content">
+            <h2>
+              John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain
+              Bracelet"
+            </h2>
+            <p>
+              rom our Legends Collection, the Naga was inspired by the mythical
+              water dragon that protects the ocean's pearl. Wear facing inward
+            </p>
+            <button>15.99 $</button>
+          </div>
+        </div> -->
+
+      </div>
+
+
+<script>
+    // Wrap your code in a function to improve encapsulation and readability
+const initProductDisplay = async () => {
+  const productContainerEl = document.getElementById("productContainer");
+  const searchInputEl = document.getElementById("searchInput");
+
+  const apiUrl = "https://fakestoreapi.com/products";
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(apiUrl);
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      return [];
+    }
+  };
+
+  let products = await fetchProducts();
+
+  const generateProductCard = (product) => {
+    return `
+      <div class="product_card">	
+        <div class="image_container">	
+          <img src="${product.image}" alt="" />	
+        </div>	
+        <div class="product_content">	
+          <h2>${product.title}</h2>	
+          <p>${product.description.split(" ").slice(0, 20).join(" ")}</p>	
+          <button>${product.price} $</button>	
+        </div>	
+      </div>
+    `;
+  };
+
+  const renderProducts = (productsToRender) => {
+    productContainerEl.innerHTML = "";
+    productsToRender.forEach((product) => {
+      productContainerEl.innerHTML += generateProductCard(product);
+    });
+  };
+
+  const filterProducts = (searchText) => {
+    searchText = searchText.toLowerCase();
+    const filteredProducts = products.filter((product) => {
+      return (
+        product.title.toLowerCase().includes(searchText) ||
+        product.description.toLowerCase().includes(searchText) ||
+        product.price.toString().includes(searchText)
+      );
+    });
+    renderProducts(filteredProducts);
+  };
+
+  const filterHandler = (event) => {
+    const searchText = event.target.value;
+    filterProducts(searchText);
+  };
+
+  searchInputEl.addEventListener("input", filterHandler);
+
+  renderProducts(products);
+};
+
+// Call the initialization function to start the product display
+initProductDisplay();
+
+</script>
+</body>
+
+</html>
