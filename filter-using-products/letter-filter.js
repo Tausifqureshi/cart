@@ -22,7 +22,8 @@
 // inputTag.addEventListener('input', filterTable);
 
 
-//  ==========================================Tapa ka chapter=================================================//
+// ==========================================Tapa ka chapter=================================================//
+//is filter se 0 index search kar re ge jaise Tauaif kar re ge tu pura tr tag ay ga jitne us me td tag o show hogi ?
 function filterTable() {
 // console.log(filterTable)
 const inputValue = document.getElementById('inp').value.toUpperCase(); //jo bhi serach kar re ge o letter aye ga ?
@@ -40,9 +41,9 @@ if (td) {
     let textValue = td.textContent || td.innerHTML //or || oparetor use dono me se ek value true tu answer aye ga is se ? textconetnt and html means jo td tag ke ander text o mile ga na ke pura tr tag nhi mile ga ? 
     console.log(textValue) 
     if (textValue.toUpperCase().indexOf(inputValue) > -1) {// inputvalue variable ki value agar nhi milti tu indexof() se -1 deta hai ye method
-        tr[0].style.display ='' ; //agar value milti hai tu hame value show ho jaye gi tr tag ke ander jo td tag hai us ki value ?
+        tr[i].style.display ='' ; //agar value milti hai tu hame value show ho jaye gi tr tag ke ander jo td tag hai us ki value ?
     }else{
-    tr[0].style.display ='none' ; //agar value nhi mili tu display none tr tag ke ander td tag ki jo value hai ?
+    tr[i].style.display ='none' ; //agar value nhi mili tu display none tr tag ke ander td tag ki jo value hai ?
     }
 }
     
